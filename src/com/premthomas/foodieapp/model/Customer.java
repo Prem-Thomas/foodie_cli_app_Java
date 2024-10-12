@@ -10,8 +10,8 @@ public class Customer {
     --------------------------------------
     String                      id
     String                      name
-    String                      description
-    double                      price
+    String                      email
+    String                      password
      */
 
     /*
@@ -24,8 +24,8 @@ public class Customer {
 
     private String id;
     private String name;
-    private String description;
-    private double price;
+    private String email;
+    private String password;
 
     public Customer() {
     }
@@ -39,21 +39,30 @@ public class Customer {
         return this;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
-    public Customer setDescription(String description) {
-        this.description = description;
+    public Customer setName(String name) {
+        this.name = name;
         return this;
     }
 
-    public double getPrice() {
-        return price;
+    public String getEmail() {
+        return email;
     }
 
-    public Customer setPrice(double price) {
-        this.price = price;
+    public Customer setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Customer setPassword(String password) {
+        this.password = password;
         return this;
     }
 
@@ -62,12 +71,12 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Double.compare(price, customer.price) == 0 && Objects.equals(id, customer.id) && Objects.equals(name, customer.name) && Objects.equals(description, customer.description);
+        return Objects.equals(id, customer.id) && Objects.equals(name, customer.name) && Objects.equals(email, customer.email) && Objects.equals(password, customer.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, price);
+        return Objects.hash(id, name, email, password);
     }
 
     @Override
@@ -75,8 +84,8 @@ public class Customer {
         return "Customer{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
