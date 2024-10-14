@@ -17,7 +17,7 @@ private List<Dish> dishesList;
 private List<Customer> customerList;
 
     public List<Dish> readDishesFromCsv(){
-        String DISHES_CSV_PATH = "C:\\Users\\erapo\\StephenThomas\\FoodApplcation12Oct\\data\\dishes.csv";
+        String DISHES_CSV_PATH = "C:\\Users\\erapo\\StephenThomas\\FoodApplcation12Oct\\data\\dishes (1).csv";
         String line;
         List<Dish> dishesList = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(DISHES_CSV_PATH))){
@@ -31,7 +31,9 @@ private List<Customer> customerList;
                        .setDescription(data[2])
                        .setPrice(Double.parseDouble(data[3]));
                dishesList.add(dish);
+
            }
+
            this.dishesList = dishesList;
         }catch(IOException e){
             e.printStackTrace();
@@ -41,20 +43,24 @@ private List<Customer> customerList;
         return dishesList;
     }
 
+
+
+
     public List<Customer> readCustomersFromCsv(){
-        String CUSTOMERS_CSV_PATH = "C:\\Users\\erapo\\StephenThomas\\FoodApplcation12Oct\\data\\customers.csv";
+        String CUSTOMERS_CSV_PATH = "C:\\Users\\erapo\\StephenThomas\\FoodApplcation12Oct\\data\\customers (1).csv";
         String line ;
         List<Customer> customerList = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(CUSTOMERS_CSV_PATH))){
-             String csvSplitBy = " , ";;
+             String csvSplitBy = ",";;
              br.readLine();
             while((line = br.readLine()) != null){
                 String[] data = line.split(csvSplitBy);
-                Customer customer = new Customer();
-                customer.setId(data[0])
-                        .setEmail(data[1])
-                        .setPassword(data[2]);
-                customerList.add(customer);
+               Customer customer = new Customer();
+                 customer.setId(data[0])
+                         .setName(data[1])
+                         .setEmail(data[2])
+                         .setPassword(data[3]);
+               customerList.add(customer);
 
             }
 
@@ -65,15 +71,17 @@ private List<Customer> customerList;
         }
         return customerList;
     }
+
+
     public List<Restaurant> readRestaurantFromCSv(){
-        String RESTAURANT_CSV_PATH = "C:\\Users\\erapo\\StephenThomas\\FoodApplcation12Oct\\data\\restaurants.csv ";
+        String RESTAURANT_CSV_PATH = "C:\\Users\\erapo\\StephenThomas\\FoodApplcation12Oct\\data\\restaurants (1).csv ";
         String line;
         List<Restaurant> restaurantList = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(RESTAURANT_CSV_PATH))){
             String csvSplitBy = ",";
             br.readLine();
             while ((line = br.readLine()) != null){
-                String[] data = line.split(csvSplitBy);
+                String[] data = line.split(csvSplitBy);  // click on method after ctr + alt +v it create method
                 Restaurant restaurant = new Restaurant();
                 restaurant.setId(data[0])
                         .setName(data[1])
