@@ -29,7 +29,7 @@ public class DishRepository {
         return dishOptional.orElse(null);
     }
 
-    public Optional<Dish> fidyDishById(String id){
+    public Optional<Dish> findDishById(String id){
         return this.dishList.stream().filter(dish -> dish.getId().equals(id)).findFirst();
     }
 
