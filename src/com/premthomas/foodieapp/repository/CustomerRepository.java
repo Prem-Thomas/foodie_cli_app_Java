@@ -1,5 +1,6 @@
 package com.premthomas.foodieapp.repository;
 
+import com.premthomas.foodieapp.factory.Factory;
 import com.premthomas.foodieapp.model.Customer;
 
 import javax.swing.text.html.Option;
@@ -8,7 +9,9 @@ import java.util.Optional;
 
 public class CustomerRepository {
     List<Customer> customerList;
-
+  public CustomerRepository(){
+      this.customerList = Factory.getCSvReader().readCustomersFromCsv();
+  }
     public Customer saveCustomerList(Customer customer){
          this.customerList.add(customer);
          return customer;
