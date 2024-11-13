@@ -1,5 +1,6 @@
 package com.premthomas.foodieapp.model;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,6 +29,7 @@ public class Order1 {
     private Restaurant restaurant;
     private List<Dish> dishes;
     private double price;
+    private LocalDate orderDate;
 
     public Order1() {
     }
@@ -77,27 +79,37 @@ public class Order1 {
         return this;
     }
 
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public Order1 setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Order1 order = (Order1) o;
-        return Double.compare(price, order.price) == 0 && Objects.equals(id, order.id) && Objects.equals(customer, order.customer) && Objects.equals(restaurant, order.restaurant) && Objects.equals(dishes, order.dishes);
+        Order1 order1 = (Order1) o;
+        return Double.compare(price, order1.price) == 0 && Objects.equals(id, order1.id) && Objects.equals(customer, order1.customer) && Objects.equals(restaurant, order1.restaurant) && Objects.equals(dishes, order1.dishes) && Objects.equals(orderDate, order1.orderDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, customer, restaurant, dishes, price);
+        return Objects.hash(id, customer, restaurant, dishes, price, orderDate);
     }
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Order1{" +
                 "id='" + id + '\'' +
                 ", customer=" + customer +
                 ", restaurant=" + restaurant +
                 ", dishes=" + dishes +
                 ", price=" + price +
+                ", orderDate=" + orderDate +
                 '}';
     }
 }
