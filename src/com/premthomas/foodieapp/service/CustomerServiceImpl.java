@@ -59,6 +59,8 @@ public class CustomerServiceImpl implements CustomerService{
         return customerById.get();
     }
 
+
+
     @Override
     public void setCurrectLoggedInCustomer(Customer customer) {
      this.currentLoggedInCustomer = customer;
