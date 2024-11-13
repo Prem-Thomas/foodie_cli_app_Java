@@ -18,6 +18,9 @@ public class RestaurantRepository {
         return restaurant;
     }
 
+    public Optional<Restaurant> findRestuarantById(String id){
+        return this.restaurantsList.stream().filter(restaurant -> restaurant.getId().equals(id)).findFirst();
+    }
     public Restaurant updateResstaurant(Restaurant restaurantToBeUpdated){
         Optional<Restaurant> restaurantOptional = this.restaurantsList.stream().filter(restaurant -> restaurant.getId().equals(restaurantToBeUpdated.getId()))
                 .findFirst()
